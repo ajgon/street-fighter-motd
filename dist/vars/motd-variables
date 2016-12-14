@@ -1,0 +1,4 @@
+PUBLIC_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+PRIVATE_IP=$(ip addr | awk '/inet / {sub(/\/.*/, "", $2); print $2}' | tail -n 1)
+UPTIME=$(uptime -p)
+LOAD=$(uptime | sed -E 's@.*averages?: ?@@g')

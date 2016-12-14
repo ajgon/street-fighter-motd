@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+VARS=$(cut -d '=' -f 1 < /etc/update-motd.d/vars/motd-variables)
+HOST=$(hostname)
+if [ -e "/etc/update-motd.d/templates/${HOST}.motd" ]; then
+  source /etc/update-motd.d/vars/motd-variables
+  cp "/etc/update-motd.d/templates/${HOST}.motd" "/tmp/${HOST}.motd"
+  for var in ${VARS}; do sed -i~ "s@##${var}##@${!var}@g" "/tmp/${HOST}.motd"; done
+  cat "/tmp/${HOST}.motd"
+fi

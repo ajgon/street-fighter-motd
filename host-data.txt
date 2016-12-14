@@ -1,0 +1,5 @@
+
+Public IP:  ##PUBLIC_IP##
+Private IP: ##PRIVATE_IP##
+Uptime:     ##UPTIME##
+Load:       ##LOAD##
